@@ -116,7 +116,7 @@ static NSString * systemId = @"QbTXZB";
     
     //调用方法
     im = [[IMViewController alloc]init];
-    im.systemId       = systemId;
+    im.systemId       = systemId;  //接入号，由我司提供，可在客服平台查看
     im.cust_im_number = @"appName_telephoneNumber1";//代表用户ID
     im.getMessage         = YES;
     im.imUserNick         = @"iOS-App用户";  //显示在客服平台上的昵称
