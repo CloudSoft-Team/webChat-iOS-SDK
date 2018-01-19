@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = ‘webChat-iOS’
-    s.version      = '0.0.4'
+    s.version      = ‘0.0.5’
     s.summary      = 'An easy way to use pull-to-refresh'
     s.homepage     = 'https://github.com/CloudSoft-Team/webChat-iOS-SDK'
     s.license      = 'MIT'
