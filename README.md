@@ -9,8 +9,7 @@ Webchat sdk 是一个可自定义的嵌入式聊天SDK。
 可实现文字 图片 表情聊天 服务器自动回复 以及人工客服。
 ### 一、WebChat SDK 接入流程
 
-![](image/Pasted Graphic.tiff)
-
+![](image/QQ0.png)
 ![](image/QQ1.png)
 ![](image/QQ2.png)
 ![](image/QQ3.png)
