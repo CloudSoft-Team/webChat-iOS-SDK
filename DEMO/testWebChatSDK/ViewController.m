@@ -9,7 +9,8 @@
 #import "ViewController.h"
 #import <YR_webChat/YR_webChat.h>
 
-static NSString * systemId = @"QbTXZB";
+
+static NSString * systemId = @"456";
 
 
 @interface ViewController (){
@@ -32,6 +33,7 @@ static NSString * systemId = @"QbTXZB";
     //设置
     self.navigationController.navigationBar.translucent = NO;
     
+    cust_im_number = @"49471";
     //获取沙盒路径
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     NSLog(@"沙盒路径：%@",path);
@@ -45,7 +47,7 @@ static NSString * systemId = @"QbTXZB";
     [self.view addSubview:btn];
     
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn2 setTitle:@"删除缓存" forState:UIControlStateNormal];
+    [btn2 setTitle:@"清空记录" forState:UIControlStateNormal];
     [btn2 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     btn2.frame = CGRectMake(50, 100, 100, 40);
     btn2.backgroundColor = [UIColor yellowColor];
@@ -53,11 +55,11 @@ static NSString * systemId = @"QbTXZB";
     [self.view addSubview:btn2];
     
     UIButton *btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn3 setTitle:@"缓存大小" forState:UIControlStateNormal];
+    [btn3 setTitle:@"切换账号" forState:UIControlStateNormal];
     [btn3 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     btn3.frame = CGRectMake(50, 150, 100, 40);
     btn3.backgroundColor = [UIColor yellowColor];
-    [btn3 addTarget:self action:@selector(testGetCache) forControlEvents:UIControlEventTouchUpInside];
+    [btn3 addTarget:self action:@selector(exitloginAndChange) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn3];
     
     self.cacheSize = [[UILabel alloc]init];
@@ -96,32 +98,48 @@ static NSString * systemId = @"QbTXZB";
 
 //清空聊天记录并刷新，若不调用reloadIMList则不会立即刷新，需重启app
 - (void)testClearCache{
-    [IMViewController clearCacheWithUserID:cust_im_number completeBlock:^(BOOL isComplete) {
-        
-        //刷新IM
-        [im reloadIMList];
-    }];
+    
+//    //这是计算聊天记录数据大小的
+//    unsigned long long size =  [IMViewController getCacheSizeWithUserID:cust_im_number withSystemID:systemId];
+//
+//    NSLog(@"size = %lld",size);
+//    self.cacheSize.text = [NSString stringWithFormat:@"%lld 字节",size];
+//
+//
+//
+//    //删除并刷新
+//    [IMViewController clearCacheWithUserID:cust_im_number withSystemID:systemId  completeBlock:^(BOOL isComplete) {
+//
+//        //刷新IM
+//        [im reloadIMList];
+//    }];
+    
 }
 
-- (void)testGetCache{
+//
+- (void)exitloginAndChange{
+   
+    //退出
     [[[IMViewController alloc] init]ExitLogin];
-    unsigned long long size =  [IMViewController getCacheSizeWithUserID:cust_im_number];
+    //切换账号
+    if([cust_im_number isEqualToString: @"appName_telephoneNumber3"]){
+        cust_im_number = @"appName_telephoneNumber4";
+    }else{
+        cust_im_number = @"appName_telephoneNumber3";
+    }
     
-    NSLog(@"size = %lld",size);
     
-    self.cacheSize.text = [NSString stringWithFormat:@"%lld 字节",size];
 }
 
 - (void)test{
     
     //调用方法
     im = [[IMViewController alloc]init];
-    im.systemId       = systemId;  //接入号，由我司提供，可在客服平台查看
-    im.cust_im_number = @"appName_telephoneNumber1";//代表用户ID
-    im.getMessage         = YES;
+    im.systemId       = systemId;    //webChat企业接入号，由我司提供
+    im.cust_im_number = cust_im_number;  //代表用户ID
+ 
     im.imUserNick         = @"iOS-App用户";  //显示在客服平台上的昵称
     [im setHidesBottomBarWhenPushed:YES];
-    
     [self.navigationController pushViewController:im animated:YES];
 }
 

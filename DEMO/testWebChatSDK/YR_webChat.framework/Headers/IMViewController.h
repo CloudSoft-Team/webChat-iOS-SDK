@@ -24,7 +24,7 @@
 @property (nonatomic, copy) NSString * imUserNick;
 
 /**
- * 用户Logo(可选)
+ * 从url下载动态用户头像(可选)
  */
 @property (nonatomic,copy)NSString * logoUrl;
 
@@ -59,7 +59,7 @@
 @property (nonatomic, copy) NSString *headTitle;
 
 /**
- *  退出聊天界面时，是否继续接收消息（默认为NO不接收 、YES接收）push入栈时才生效，模态视图弹出无效
+ *  退出聊天界面时，是否继续接收消息（默认为NO不接收 、YES接收）没有特殊需求时请设置为NO
  */
 @property (nonatomic, assign) BOOL getMessage;
 
@@ -69,7 +69,7 @@
 @property (nonatomic,strong)UIColor * tabBackColo;
 
 /**
- * 文字大小(可选，默认 17.0f)
+ * 双方聊天文字大小(可选，默认 17.0f)  最小值为16.0
  */
 @property (nonatomic,strong)UIFont * textFont;
 
@@ -121,7 +121,9 @@
  *
  *  @param completeBlock 清除缓存结果回调（isComplete == YES 清除成功   NO : 失败或者参数userID为nil,请填写）
  */
-+ (void)clearCacheWithUserID:(NSString * )userID completeBlock:(void(^)(BOOL isComplete))block;
++ (void)clearCacheWithUserID:(NSString * )userID
+                withSystemID:(NSString * )systemID
+               completeBlock:(void(^)(BOOL isComplete))block;
 
 /**
  *  获取聊天记录的大小
@@ -130,10 +132,12 @@
  *
  *  @return 单位：字节
  */
-+ (unsigned long long)getCacheSizeWithUserID:(NSString * )userID;
++ (unsigned long long)getCacheSizeWithUserID:(NSString * )userID
+                                withSystemID:(NSString * )systemID;
 
 //注销用户时，一定要调用此方法！
 - (void) ExitLogin;
+
 
 @end
 

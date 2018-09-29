@@ -1,6 +1,0 @@
-framework module YR_webChat {
-  umbrella header "YR_webChat.h"
-
-  export *
-  module * { export * }
-}
