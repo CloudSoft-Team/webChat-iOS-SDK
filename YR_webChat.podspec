@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "YR_webChat"
-  s.version      = "1.0.0"
+  s.version      = "1.0"
   s.summary      = "A library for chat."
   s.description  = <<-DESC
 		  YR_webChat 是一个用于集成客服聊天功能的sdk
@@ -61,7 +61,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/CloudSoft-Team/webChat-iOS-SDK.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/CloudSoft-Team/webChat-iOS-SDK.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
