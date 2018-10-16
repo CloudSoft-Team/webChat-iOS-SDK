@@ -11,7 +11,7 @@
 @interface IMViewController : UIViewController
 
 /**
- * 企业标识（* 必须，可登录客服平台，在左下角点击设置-接入渠道-webchat查看）
+ * 企业标识（* 必须，可登录客服平台，在左下角点击设置-接入渠道-webchat/iOS查看）
  */
 @property (nonatomic , copy) NSString *systemId;
 /**
@@ -19,12 +19,12 @@
  */
 @property(nonatomic,copy)NSString*cust_im_number;
 /**
- * 用户昵称(* 建议填写，在接入客服的时候，昵称会展示给客服查看，可传任何字符)
+ * 用户昵称(* 建议填写，在接入客服的时候，昵称会展示给客服查看)
  */
 @property (nonatomic, copy) NSString * imUserNick;
 
 /**
- * 从url下载动态用户头像(可选)
+ * 从url下载动态用户头像(可选,传头像地址)
  */
 @property (nonatomic,copy)NSString * logoUrl;
 

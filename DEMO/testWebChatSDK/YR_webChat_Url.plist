@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>img_UploadUrl</key>
-	<string>http://testucc.im-cc.com:18004/upload</string>
+	<string>https://uccfile.im-cc.com/upload</string>
 	<key>img_downloadUrl</key>
-	<string>http://testucc.im-cc.com:18004/download/</string>
+	<string>https://uccfile.im-cc.com/download/</string>
 	<key>loginUrl</key>
-	<string>http://testucc.im-cc.com:18004/httpif/</string>
+	<string>https://u.im-cc.com/httpif/</string>
 	<key>ImmediatelyLogin</key>
 	<true/>
 </dict>

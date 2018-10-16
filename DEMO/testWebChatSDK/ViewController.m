@@ -10,7 +10,7 @@
 #import <YR_webChat/YR_webChat.h>
 
 
-static NSString * systemId = @"456";
+static NSString * systemId = @"10057";
 
 
 @interface ViewController (){
@@ -137,7 +137,7 @@ static NSString * systemId = @"456";
     im = [[IMViewController alloc]init];
     im.systemId       = systemId;    //webChat企业接入号，由我司提供
     im.cust_im_number = cust_im_number;  //代表用户ID
- 
+    im.sex = @"1";
     im.imUserNick         = @"iOS-App用户";  //显示在客服平台上的昵称
     [im setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:im animated:YES];
